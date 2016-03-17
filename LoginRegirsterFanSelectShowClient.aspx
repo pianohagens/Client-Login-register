@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LoginRegirsterClient.aspx.cs" Inherits="LoginRegirsterClient" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="LoginRegirsterFanSelectShowClient.aspx.cs" Inherits="LoginRegirsterFanSelectShowClient" %>
 
 <!DOCTYPE html>
 
@@ -60,8 +60,57 @@
                 <p><asp:Button ID="LoginButton" runat="server" Text="Login" Height="45px" Width="80px" OnClick="LoginButton_Click" align="center" /></p>
            </section>
 
+            <section class="selectshow">
+                <p align="center">Logined as A Registed Fan: User Name is </p>
+                <h1>Search Show Here</h1>
+                <table>
+            <tr><td>Select Artist</td>
+                <td><asp:DropDownList ID="ArtistList" runat="server"></asp:DropDownList></td></tr>
 
-        
+             <tr><td>Select Show Name</td>
+                <td><asp:DropDownList ID="ShowName" runat="server"></asp:DropDownList></td></tr>
+
+            <tr><td>Select ShowDate</td>
+             <td><asp:Calendar ID="ShowDate" runat="server"></asp:Calendar> </td>     </tr>
+
+            <tr><td>Select ShowTime</td>
+             <td>
+                 <asp:DropDownList ID="DropDownListTime" runat="server" OnSelectedIndexChanged="SelectShowSubmitButton_Click">
+                     <asp:ListItem>10:00:00</asp:ListItem>
+                     <asp:ListItem>12:00:00</asp:ListItem>
+                     <asp:ListItem>14:00:00</asp:ListItem>
+                     <asp:ListItem>10:00:00</asp:ListItem>
+                     <asp:ListItem>16:00:00</asp:ListItem>
+
+                 </asp:DropDownList>  </td>     </tr>
+         
+
+         <tr><td> <asp:Button ID="SelectShowSubmitButton" runat="server" Text="Submit" OnClick="SelectShowSubmitButton_Click" align="center" /></td>
+              <td>
+                  <asp:Label ID="ResultLabel" runat="server" Text=""></asp:Label> </td>
+          </tr>
+
+                               </table>
+            </section>
+        <table class="showinfo">
+            <h2 class="auto-style1">Search Results</h2>
+       <asp:GridView ID="GridView1" runat="server" Height="116px" Width="611px"></asp:GridView>
+        <asp:Button ID="Button1" runat="server" Text="Get Shows" OnClick="SelectShowSubmitButton_Click" align="center" />  
+            
+         <tr>
+             
+             <th>Show Artist</th>
+             <th>Show Name</th>
+             <th>Show Date</th>
+             <th>Show Time</th>
+             <th>Ticket</th>        
+                </tr>
+            
+            <tr>   
+
+            </tr>  
+
+        </table>
         </form>
         <footer></footer>
     </div>

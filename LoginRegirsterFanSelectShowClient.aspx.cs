@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-public partial class LoginRegirsterClient : System.Web.UI.Page
+public partial class LoginRegirsterFanSelectShowClient : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -16,20 +16,17 @@ public partial class LoginRegirsterClient : System.Web.UI.Page
     {
         SubmitRegister();
 
-
     }
 
     protected void SubmitRegister()
 
     {
-        
-
     }
       
     protected void RegisterButton_Click(object sender, EventArgs e)
     {
-        ServiceReference1.FinalProjectServiceClient frg = new ServiceReference1.FinalProjectServiceClient();
-        ServiceReference1.FanRegister fr = new ServiceReference1.FanRegister();
+        ServiceReference.FinalProjectServiceClient frg = new ServiceReference.FinalProjectServiceClient();
+        ServiceReference.FanRegister fr = new ServiceReference.FanRegister();
 
         fr.FanName = RegisterNameTextBox.Text;
         fr.FanEmail = RegisterEmailTextBox.Text;
@@ -43,10 +40,16 @@ public partial class LoginRegirsterClient : System.Web.UI.Page
             RegisterErrorLabel.Text = "Successfuly Registed";
         else
             RegisterErrorLabel.Text = "Register Failed, You might need to check your registration status";
-
-
-
     }
 
-   
+    private object shows;
+
+    protected void SelectShowSubmitButton_Click(object sender, EventArgs e)
+    {
+        ServiceReference.FinalProjectServiceClient frg = new ServiceReference.FinalProjectServiceClient();
+        ServiceReference.FanRegister fr = new ServiceReference.FanRegister();
+
+        GridView1.DataSource = shows;
+        GridView1.DataBind();
+    }
 }
