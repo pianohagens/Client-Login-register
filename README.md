@@ -1,2 +1,2 @@
-# Group_ProjectFinalClient-By-KristopherChambers-and-PianoHagens
+# Client Login register
 Login, register, and select show section.
